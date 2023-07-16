@@ -8,15 +8,27 @@ import { useState } from 'react';
 function App() {
   const[mode,setmode]=useState('light');
 
+const[alert,setalert]=useState(null);
 
+const showAtert=(message,type)=>{
+     setalert({
+      msg:message,
+      type:type
+     })
+     setTimeout(() => {
+      setalert(null);
+     }, 1500);
+}
   const togglemode =()=>{
     if(mode ==='light'){
       setmode ('dark');
       document.body.style.backgroundColor='grey';
+      showAtert(" enable dark mode", "success");
     }
     else{
       setmode('light');
       document.body.style.backgroundColor='white';
+      showAtert("enable light mode", "success");
     }
 
   }
