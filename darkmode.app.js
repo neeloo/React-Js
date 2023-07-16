@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import Alert from './Component/Alert';
 import Navbar from './Component/Navbar';
 import TextForm from './Component/TextForm';
 // import About from './Component/About';
@@ -19,6 +20,8 @@ const showAtert=(message,type)=>{
       setalert(null);
      }, 1500);
 }
+  
+
   const togglemode =()=>{
     if(mode ==='light'){
       setmode ('dark');
@@ -60,14 +63,17 @@ const showAtert=(message,type)=>{
 
  {/*  2===change the name of titleand about   using prorpstype **************/}
 
- <Navbar  title='TextUtil'  About=' About us'  mode={mode} togglemode={togglemode}/>     
+ <Navbar  title='TextUtil'  About=' About us'  mode={mode} togglemode={togglemode}/>  
+
+ {/* //adding ater.js***************** */}
+ <Alert   alert={alert}/>   
 
 {/*  3==for default proprs ************/} 
   {/* <Navbar/>     */}
 
   {/* adding textForm.js ***************************/}
   <div className="container  my-3" >
-  <TextForm heading=" Enter the text to analyze" mode={mode}/>
+  <TextForm  showAtert ={showAtert} heading=" Enter the text to analyze" mode={mode}/>
   {/* //adding about js****************** */}
   {/* <About/> */}
   </div>
